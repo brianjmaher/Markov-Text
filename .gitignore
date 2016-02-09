@@ -1,3 +1,7 @@
+#Things I want ignored:
+asoiaf.txt
+*.pyc
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
