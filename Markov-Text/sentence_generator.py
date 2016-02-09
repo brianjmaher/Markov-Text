@@ -1,5 +1,5 @@
 import weighted_choice as wc
-import separate as sp
+from separate import separate
 
 # reads text from a txt file and returns it as a string
 def read_text(filename):
@@ -30,9 +30,9 @@ def get_word_weights(sentences):
 
 # sentence generator function, takes a filename and a number of sentences
 # to generate
-def make_sentences(filename, n):
-    # sepeate text and generate the word weights dictionary
-    sep_text = sp.separate(read_text(filename))
+def generate_sentences(filename, n):
+    # separate text and generate the word weights dictionary
+    sep_text = separate(read_text(filename))
     words_dict = get_word_weights(sep_text)
     sentences = []
     # begin all sentences with a begin tage

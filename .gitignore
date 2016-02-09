@@ -1,5 +1,6 @@
 #Things I want ignored:
 asoiaf.txt
+char_weights.py
 *.pyc
 
 # Windows image file caches

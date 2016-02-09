@@ -1,16 +1,20 @@
-import fake_sentences as fs
-import seperate as sp
+from sentence_generator import generate_sentences
 
 def main():
-    filename = raw_input("Please enter a file name to parse: ")
+	# read filenames and number of sentences
+    in_filename = raw_input("Please enter a file name to parse: ")
+    out_filename = raw_input("Please enter a file name to write ouput to: ")
     num = int(raw_input("How many sentences do you want? "))
-    out_filename = raw_input("What file name should output be written to? ")
 
-    sep_text = sp.seperate(read_text(filename))
-    sentences = make_sentences(fs.get_weights(sep_text), num)
+    # generate sentences
+    sentences = generate_sentences(in_filename, num)
+    text = ' '.join(sentences)
+
+    print text
     
+    # write sentences to file
     out_file = open(out_filename, 'w')
-    out_file.write(' '.join(sentences))
+    out_file.write(text)
     out_file.close()
    
 if __name__ == "__main__":
