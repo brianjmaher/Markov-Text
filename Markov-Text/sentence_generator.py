@@ -22,10 +22,10 @@ def get_word_weights(sentences):
                 if word != "":
                     if prev_word not in weights:
                         weights[prev_word] = {}
-                    if word not in weights[last_word]:   
+                    if word not in weights[prev_word]:   
                         weights[prev_word][word] = 0
-                    weights[last_word][word] += 1
-                    last_word = word
+                    weights[prev_word][word] += 1
+                    prev_word = word
     return weights
 
 # sentence generator function, takes a filename and a number of sentences

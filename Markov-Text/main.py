@@ -1,12 +1,7 @@
 from sentence_generator import generate_sentences
+import sys # for command line arguments
 
-def main():
-	# read filenames and number of sentences
-    in_filename = raw_input("Please enter a file name to parse: ")
-    out_filename = raw_input("Please enter a file name to write ouput to: ")
-    num = int(raw_input("How many sentences do you want? "))
-
-    # generate sentences
+def main(in_filename, out_filename, num):
     sentences = generate_sentences(in_filename, num)
     text = ' '.join(sentences)
 
@@ -18,4 +13,15 @@ def main():
     out_file.close()
    
 if __name__ == "__main__":
-	main()
+    # argv[1] is the input file location
+    # argv[2] is the output file location
+    # argv[3] is the number of sentences to generate
+    if len(sys.argv) == 4:
+        try:
+        	main(sys.argv[1], sys.argv[2], sys.argv[3])
+            print "Success."
+        except:
+            print "Failed."
+    else:
+        print "ERROR: incorrect number of argumnets: %d given, 3 expected." % len(sys.argv)
+        sys.exit(1)
